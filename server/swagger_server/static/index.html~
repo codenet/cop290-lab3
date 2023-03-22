@@ -1,0 +1,34 @@
+<html>
+<head>
+<script src='//unpkg.com/swagger-client' type='text/javascript'></script> 
+<script>
+var SwaggerPetstoreOpenApi30 = require('swagger_petstore___open_api_30');
+var defaultClient = SwaggerPetstoreOpenApi30.ApiClient.instance;
+
+// Configure OAuth2 access token for authorization: petstore_auth
+var petstore_auth = defaultClient.authentications['petstore_auth'];
+petstore_auth.accessToken = "YOUR ACCESS TOKEN"
+
+var api = new SwaggerPetstoreOpenApi30.PetApi()
+var body = new SwaggerPetstoreOpenApi30.Pet(); // {Pet} Create a new pet in the store
+var id = 789; // {Number} 
+var name = "name_example"; // {String} 
+var category = new SwaggerPetstoreOpenApi30.Category(); // {Category} 
+var photoUrls = ["photoUrls_example"]; // {[String]} 
+var tags = [new SwaggerPetstoreOpenApi30.Tag()]; // {[Tag]} 
+var status = "status_example"; // {String} 
+
+var callback = function(error, data, response) {
+  if (error) {
+    console.error(error);
+  } else {
+    console.log('API called successfully. Returned data: ' + data);
+  }
+};
+api.addPet(body, id, name, category, photoUrls, tags, status, callback);
+</script>
+</head>
+<body>
+  check console in browser's dev. tools
+</body>
+</html>

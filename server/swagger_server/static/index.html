@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>Swagger UI</title>
+    <!-- <link rel="stylesheet" type="text/css" href="./swagger-ui.css" />
+    <link rel="stylesheet" type="text/css" href="index.css" />
+    <link rel="icon" type="image/png" href="./favicon-32x32.png" sizes="32x32" />
+    <link rel="icon" type="image/png" href="./favicon-16x16.png" sizes="16x16" /> -->
+  </head>
+
+  <body>
+    <div id="swagger-ui"></div>
+    <!-- <script src="./swagger-ui-bundle.js" charset="UTF-8"> </script>
+    <script src="./swagger-ui-standalone-preset.js" charset="UTF-8"> </script>
+    <script src="./swagger-initializer.js" charset="UTF-8"> </script> -->
+    <script type="module" src="./client/src/index.js" charset="UTF-8"> </script>
+		<script>
+			var SwaggerPetstoreOpenApi30 = require('swagger_petstore___open_api_30');
+			var defaultClient = SwaggerPetstoreOpenApi30.ApiClient.instance;
+			
+			// Configure OAuth2 access token for authorization: petstore_auth
+			var petstore_auth = defaultClient.authentications['petstore_auth'];
+			petstore_auth.accessToken = "YOUR ACCESS TOKEN"
+			
+			var api = new SwaggerPetstoreOpenApi30.PetApi()
+			var body = new SwaggerPetstoreOpenApi30.Pet(); // {Pet} Create a new pet in the store
+			var id = 789; // {Number} 
+			var name = "name_example"; // {String} 
+			var category = new SwaggerPetstoreOpenApi30.Category(); // {Category} 
+			var photoUrls = ["photoUrls_example"]; // {[String]} 
+			var tags = [new SwaggerPetstoreOpenApi30.Tag()]; // {[Tag]} 
+			var status = "status_example"; // {String} 
+			
+			var callback = function(error, data, response) {
+				if (error) {
+					console.error(error);
+				} else {
+					console.log('API called successfully. Returned data: ' + data);
+				}
+			};
+			api.addPet(body, id, name, category, photoUrls, tags, status, callback);
+			</script>
+  </body>
+</html>
