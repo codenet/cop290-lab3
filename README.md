@@ -33,10 +33,26 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 mysql> create database pets;
 Query OK, 1 row affected (0.01 sec)
 
+mysql > use pets;
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Database changed
+```
+
+## Setting up Python environment
+Download miniconda from https://docs.conda.io/en/latest/miniconda.html
+
+Then create and actiavte the environment
+```
+conda create -n cop290 python=3.10
+conda activate cop290
 ```
 
 ## Start server
-
+```
+cd server
+```
 It is advised to setup the `server/` in PyCharm IDE. PyCharm will automatically
 discover the `requirements.txt` and install the dependencies. You can then run
 the `server/swagger_server/__main__.py` in "debug mode".  Running in debug mode
@@ -49,7 +65,8 @@ python3 -m swagger_server
 ```
 
 After the server starts, you should be able to see it in your browser at
-http://localhost:8080/api/v3/ui/. `server/README.md` has more details about
+http://localhost:8080/api/v3/ui/.  
+`server/README.md` has more details about
 the server.
 
 When the server starts, it creates some database tables. The code to setup the
@@ -81,10 +98,29 @@ mysql> describe category;
 > A good exercise would be to try to create another table in the database from
 `db.py`.
 
-## Start client
-
+## Installing yarn
+### Installing Node
+yarn requires Node installation to function.  
+Check if you have a valid installation of Node using
 ```
-cd my_app
+$ node --version
+v19.8.1
+```
+If not then you can install one with
+```
+brew install node
+```
+
+### Installing Yarn
+Reference: https://classic.yarnpkg.com/lang/en/docs/install/  
+Instructions for OSX
+```
+brew install yarn
+```
+
+## Start client
+```
+cd my-app
 yarn install
 yarn start
 ```
