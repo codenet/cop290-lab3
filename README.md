@@ -17,7 +17,7 @@ Instructions for Linux can be found online. Once mysql server is running,
 create the database:
 
 ```
-$ mysql -u root
+$ sudo mysql -u root
 Welcome to the MySQL monitor.  Commands end with ; or \g.
 Your MySQL connection id is 8
 Server version: 8.0.32 Homebrew
@@ -32,7 +32,10 @@ Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
 
 mysql> create database pets;
 Query OK, 1 row affected (0.01 sec)
-
+mysql> CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'password';
+Query OK, 1 row affected (0.01 sec)
+mysql> GRANT ALL ON pets.* TO 'newuser'@'localhost';
+Query OK, 1 row affected (0.01 sec)
 ```
 
 ## Start server
@@ -83,10 +86,19 @@ mysql> describe category;
 
 ## Start client
 
+You will need to install node first.
+
 ```
-cd my_app
+cd my-app
 yarn install
 yarn start
+```
+
+If the above does not work, use the following instead:
+```
+cd my-app
+npm install
+npm start
 ```
 
 This will start the client at http://localhost:3000/. 

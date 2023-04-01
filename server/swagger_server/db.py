@@ -6,8 +6,8 @@ import pymysql
 from swagger_server.models import Category, Tag, Pet
 
 connection = pymysql.connect(host='localhost',
-                             user='root',
-                             password='',
+                             user='newuser',
+                             password='password',
                              database='pets',
                              cursorclass=pymysql.cursors.DictCursor)
 
